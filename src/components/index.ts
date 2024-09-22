@@ -1,10 +1,4 @@
 export { default as Card } from "./Card";
-export { default as CardBasic } from "./CardBasic";
-export { default as TechItems } from "./TechItems";
-export { default as Image } from "./Image";
-export { default as ContactForm } from "./ContactForm";
-export { default as SocialItems } from "./SocialItems";
-export { default as Heading } from "./Heading";
-export { default as Spacer } from "./Spacer";
-export { default as MinSocialItems } from "./MinSocialItems";
-export { default as Cyclic } from "./Cyclic";
+export { default as CardContent } from "./CardContent";
+export { default as ViewLayout } from "./ViewLayout";
+export { default as Button } from "./Button";
