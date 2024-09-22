@@ -1,28 +1,9 @@
 // import AtomMachine from "components/AtomMachine";
 import { ViewLayout, Card, CardContent, Button } from "components";
-
-const services = [
-  {
-    title: "Residential",
-    description: "Custom homes and renovations tailored to your lifestyle.",
-  },
-  {
-    title: "Light Commercial",
-    description: "Efficient and stylish spaces for your business needs.",
-  },
-  {
-    title: "Remodeling",
-    description: "Transform your existing space into something extraordinary.",
-  },
-  {
-    title: "Decks",
-    description:
-      "Create the perfect outdoor living space for relaxation and entertainment.",
-  },
-];
+import { Service } from "lib/content";
 
 type ServicesViewProps = {
-  services: any[];
+  services: Service[];
   onServiceClick: (i: number) => any;
 };
 
@@ -35,12 +16,8 @@ const ServicesView = ({ services, onServiceClick }: ServicesViewProps) => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
           {services.map((service, index) => (
-            // <a
-            //   key={service.title}
-            //   href={`#gallery`}
-            //   // onClick={() => setCurrentSlide(index)}
-            // >
             <Card
+              key={service.title}
               className="cursor-pointer transition-all hover:shadow-lg border border-neutral"
               onClick={() => onServiceClick(index)}
             >
@@ -51,7 +28,6 @@ const ServicesView = ({ services, onServiceClick }: ServicesViewProps) => {
                 </p>
               </CardContent>
             </Card>
-            // </a>
           ))}
         </div>
       </div>

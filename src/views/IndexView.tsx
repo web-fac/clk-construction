@@ -1,26 +1,6 @@
 // import AtomMachine from "components/AtomMachine";
 import { ViewLayout, Card, CardContent, Button } from "components";
 
-const services = [
-  {
-    title: "Residential",
-    description: "Custom homes and renovations tailored to your lifestyle.",
-  },
-  {
-    title: "Light Commercial",
-    description: "Efficient and stylish spaces for your business needs.",
-  },
-  {
-    title: "Remodeling",
-    description: "Transform your existing space into something extraordinary.",
-  },
-  {
-    title: "Decks",
-    description:
-      "Create the perfect outdoor living space for relaxation and entertainment.",
-  },
-];
-
 const IndexView = () => {
   return (
     <ViewLayout className="py-12 md:py-24 lg:py-32 xl:py-48 bg-neutral-200">

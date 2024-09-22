@@ -1,9 +1,9 @@
-import { useState } from "react";
 import Image from "next/image";
-import { ViewLayout, Card, CardContent, Button } from "components";
+import { ViewLayout, Button } from "components";
+import { Service } from "lib/content";
 
 type GalleryViewProps = {
-  services: any[];
+  services: Service[];
   slideNumber: number;
   onSlideChange: (slide: number, prev: number) => any;
 };

@@ -1,4 +1,6 @@
 import { AppProps } from "next/app";
+import { PrismicPreview } from "@prismicio/next";
+import { PRISMIC_REPOSITORY_NAME } from "lib/content";
 
 import Head from "next/head";
 
@@ -22,6 +24,7 @@ function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Component {...pageProps} />
+      <PrismicPreview repositoryName={PRISMIC_REPOSITORY_NAME} />
     </>
   );
 }

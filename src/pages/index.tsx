@@ -1,18 +1,11 @@
 import React from "react";
-import { GetStaticProps, GetStaticPropsContext } from "next";
 import { useState } from "react";
-/** Data */
 
 /** Components */
 import { IndexView, ContactView, ServicesView, GalleryView } from "views";
 
 import Head from "next/head";
-
-type Service = {
-  title: string;
-  description: string;
-  image: string;
-};
+import { Service, createClient, getServices } from "lib/content";
 
 interface IndexPageProps {
   services: Service[];
@@ -50,34 +43,10 @@ export const IndexPage = ({ services }: IndexPageProps) => {
 
 export default IndexPage;
 
-export const getStaticProps: GetStaticProps = async (
-  ctx: GetStaticPropsContext
-) => {
-  // TODO: Replace these with CMS Served Data
-  const services = [
-    {
-      title: "Residential",
-      description: "Custom homes and renovations tailored to your lifestyle.",
-      image: "https://placeholder.pics/svg/300",
-    },
-    {
-      title: "Light Commercial",
-      description: "Efficient and stylish spaces for your business needs.",
-      image: "https://placeholder.pics/svg/300",
-    },
-    {
-      title: "Remodeling",
-      description:
-        "Transform your existing space into something extraordinary.",
-      image: "https://placeholder.pics/svg/300",
-    },
-    {
-      title: "Decks",
-      description:
-        "Create the perfect outdoor living space for relaxation and entertainment.",
-      image: "https://placeholder.pics/svg/300",
-    },
-  ];
+export async function getStaticProps(params, previewData) {
+  const client = createClient(previewData);
+
+  const services = getServices(client);
 
   return {
     props: {
@@ -85,4 +54,4 @@ export const getStaticProps: GetStaticProps = async (
     },
     revalidate: 60,
   };
-};
+}

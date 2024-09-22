@@ -5,7 +5,10 @@ export const ColorsPage = ({ colors }) => {
   return (
     <ViewLayout>
       <div className="p-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
+          Color Palette Visualizer
+        </h1>
+        <div className="grid grid-cols-3 gap-6">
           {Object.keys(colors).map((colorKey) =>
             colors[colorKey].shades.map((shade) => (
               <div
