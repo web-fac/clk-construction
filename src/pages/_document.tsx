@@ -1,38 +1,21 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import { _theme } from "theme";
 
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html
-        lang="en"
-        style={{
-          //@ts-ignore
-          backgroundColor: _theme.colors.paper.dark,
-        }}
-      >
+      <Html lang="en" style={{}}>
         <Head>
           <meta charSet="utf-8" />
           <meta name="theme-color" content="#18191A" />
-          <meta
-            name="description"
-            content="A portfolio website for Jacob Miller, a software engineer and web developer."
-          />
-
+          <meta name="description" content="CLK Construction" />
           <meta
             name="robots"
             content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"
           />
           <meta property="og:locale" content="en_US" />
           <meta property="og:type" content="website" />
-          <meta
-            property="og:title"
-            content="Jacob Miller | Software Engineer | jacobmillerdev@gmail.com"
-          />
-          <meta
-            property="og:description"
-            content="A portfolio website for Jacob Miller, a software engineer and web developer."
-          />
+          <meta property="og:title" content="CLK Construction" />
+          <meta property="og:description" content="CLK Construction" />
           <meta property="og:url" content="https://jacobmiller22.com" />
 
           {/* Global Site Tag (gtag.js) - Google Analytics */}

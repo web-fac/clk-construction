@@ -1,95 +1,49 @@
 import React from "react";
-import { GetStaticProps, GetStaticPropsContext } from "next";
-/** Data */
-import {
-  getContact,
-  getExperience,
-  getExperienceMeta,
-  getHero,
-  getProjectMeta,
-  getProjects,
-} from "lib/contentApi";
+import { useState } from "react";
 
 /** Components */
-import Main from "layouts/Main";
-import {
-  IndexView,
-  ExperienceView,
-  ProjectsView,
-  Topbar,
-  ContactView,
-} from "views";
-import { Box, VStack } from "@chakra-ui/react";
-import {
-  IContact,
-  IExperience,
-  IExperienceMeta,
-  IHero,
-  IProject,
-  IProjectMeta,
-} from "interfaces/Prismic";
+import { IndexView, ContactView, ServicesView, GalleryView } from "views";
+
 import Head from "next/head";
+import { Service, createClient, getServices } from "lib/content";
+import TopBar from "views/TopBar";
 
 interface IndexPageProps {
-  hero: IHero;
-  experience: IExperience[];
-  experienceMeta: IExperienceMeta;
-  projects: IProject[];
-  projectMeta: IProjectMeta;
-  contact: IContact;
+  services: Service[];
 }
 
-export const IndexPage = ({
-  hero,
-  experience = [],
-  experienceMeta,
-  projects = [],
-  projectMeta,
-  contact,
-}: IndexPageProps) => {
+export const IndexPage = ({ services }: IndexPageProps) => {
   return (
-    <Main socials={contact.socials}>
+    <>
       <Head>
         <title>Jacob Miller</title>
       </Head>
-      <IndexView id="" hero={hero} />
-      <ExperienceView
-        experience={experience}
-        meta={experienceMeta}
-        id="experience"
-      />
-      <ProjectsView projects={projects} meta={projectMeta} id="projects" />
-      <ContactView id="contact" contact={contact} />
-    </Main>
+      <TopBar />
+      <main>
+        <IndexView />
+        <ServicesView services={services} />
+        {/* <GalleryView
+          services={services}
+          slideNumber={currentSlide}
+          onSlideChange={handleSlideChange}
+        /> */}
+        <ContactView />
+      </main>
+    </>
   );
 };
 
 export default IndexPage;
 
-export const getStaticProps: GetStaticProps = async (
-  ctx: GetStaticPropsContext
-) => {
-  const hero: any | undefined = await getHero();
+export async function getStaticProps(params, previewData) {
+  const client = createClient(previewData);
 
-  const experience: any[] = await getExperience();
-
-  const experienceMeta: any | undefined = await getExperienceMeta();
-
-  const projects: any[] = await getProjects();
-
-  const projectMeta: any | undefined = await getProjectMeta();
-
-  const contact: any | undefined = await getContact();
+  const services = getServices(client);
 
   return {
     props: {
-      hero: hero?.data,
-      experience: experience.map((exp) => ({ id: exp.id, ...exp.data })),
-      experienceMeta: experienceMeta?.data,
-      projects: projects.map((proj) => ({ id: proj.id, ...proj.data })),
-      projectMeta: projectMeta?.data,
-      contact: contact?.data,
+      services,
     },
     revalidate: 60,
   };
-};
+}

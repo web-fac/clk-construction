@@ -8,7 +8,7 @@ const nextConfig = {
     defaultLocale: "en-US",
   },
   images: {
-    domains: ["www.valpo.edu", "images.prismic.io"],
+    domains: ["www.valpo.edu", "images.prismic.io", "placeholder.pics"],
   },
   headers: async () => [
     {

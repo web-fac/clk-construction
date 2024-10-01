@@ -10,7 +10,6 @@ import {
 } from "interfaces/Prismic";
 
 /** Components */
-import { Text, Link } from "@chakra-ui/react";
 
 interface AtomMachineProps {
   atoms: IAtom[];
@@ -64,9 +63,9 @@ const handleSpans = (
 
   if (!spans || spans.length === 0) {
     return (
-      <Text as="span" key={`text-start`} {...options?.Text}>
+      <div as="span" key={`text-start`} {...options?.Text}>
         {text}
-      </Text>
+      </div>
     );
   }
 
@@ -75,9 +74,9 @@ const handleSpans = (
   spans.forEach((span, i: number) => {
     if (span.start > curr) {
       sections.push(
-        <Text key={`text-${i}`} as="span" {...options?.Text}>
+        <div key={`text-${i}`} as="span" {...options?.Text}>
           {text.substring(curr, span.start)}
-        </Text>
+        </div>
       );
     } else {
     }
@@ -86,9 +85,9 @@ const handleSpans = (
   });
   if (curr < text.length) {
     sections.push(
-      <Text key={`text-${spans.length}`} as="span" {...options?.Text}>
+      <div key={`text-${spans.length}`} as="span" {...options?.Text}>
         {text.substring(curr)}
-      </Text>
+      </div>
     );
   }
   return sections;
@@ -105,14 +104,14 @@ const getSpan = (span, text, i?, options?) => {
       if (data.link_type === "Web") {
         return (
           <NextLink href={data.url} passHref key={`link-${i}`}>
-            <Link target={data.target} rel="noreferrer" {...options?.Link}>
+            <a target={data.target} rel="noreferrer" {...options?.Link}>
               {getSpanText(span, text)}
-            </Link>
+            </a>
           </NextLink>
         );
       } else {
         return (
-          <Link
+          <a
             href={data.url}
             target={data.target}
             key={`link-${i}`}
@@ -120,7 +119,7 @@ const getSpan = (span, text, i?, options?) => {
             {...options?.Link}
           >
             {text}
-          </Link>
+          </a>
         );
       }
     default:
