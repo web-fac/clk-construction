@@ -1,13 +1,25 @@
 // import AtomMachine from "components/AtomMachine";
 import { ViewLayout, Card, CardContent, Button } from "components";
 import { Service } from "lib/content";
+import { useState } from "react";
+
+import Image from "next/image";
 
 type ServicesViewProps = {
   services: Service[];
-  onServiceClick: (i: number) => any;
 };
 
-const ServicesView = ({ services, onServiceClick }: ServicesViewProps) => {
+const ServicesView = ({ services }: ServicesViewProps) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % services.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + services.length) % services.length);
+  };
+
   return (
     <ViewLayout className="py-12 md:py-24 lg:py-24 xl:py-32">
       <div className="container px-4 md:px-6">
@@ -19,7 +31,7 @@ const ServicesView = ({ services, onServiceClick }: ServicesViewProps) => {
             <Card
               key={service.title}
               className="cursor-pointer transition-all hover:shadow-lg border border-neutral"
-              onClick={() => onServiceClick(index)}
+              onClick={() => setCurrentSlide(index)}
             >
               <CardContent className="flex flex-col items-center p-6">
                 <h3 className="text-lg font-bold mb-2">{service.title}</h3>
@@ -29,6 +41,48 @@ const ServicesView = ({ services, onServiceClick }: ServicesViewProps) => {
               </CardContent>
             </Card>
           ))}
+        </div>
+        <div className="relative">
+          <div className="overflow-hidden">
+            <div
+              className="flex transition-transform duration-300 ease-in-out"
+              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            >
+              {services.map((service, index) => (
+                <div key={index} className="w-full flex-shrink-0">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    unoptimized
+                    width={600}
+                    height={400}
+                    className="w-full h-[400px] object-cover rounded-lg"
+                  />
+                  <p className="mt-4 text-center text-lg font-semibold">
+                    {service.title}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <Button
+            variant="outline"
+            size="icon"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2"
+            onClick={prevSlide}
+          >
+            {/* <ChevronLeft className="h-4 w-4" /> */}
+            {"<"}
+          </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            className="absolute right-0 top-1/2 transform -translate-y-1/2"
+            onClick={nextSlide}
+          >
+            {/* <ChevronRight className="h-4 w-4" /> */}
+            {">"}
+          </Button>
         </div>
       </div>
     </ViewLayout>
