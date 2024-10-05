@@ -20,12 +20,22 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
+          light: "hsl(var(--primary-light))",
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          dark: "hsl(var(--primary-dark))",
         },
         secondary: {
+          light: "hsl(var(--secondary-light))",
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
+          dark: "hsl(var(--secondary-dark))",
+        },
+        neutral: {
+          light: "hsl(var(--neutral-light))",
+          DEFAULT: "hsl(var(--neutral))",
+          foreground: "hsl(var(--neutral-foreground))",
+          dark: "hsl(var(--neutral-dark))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
