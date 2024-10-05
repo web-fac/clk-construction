@@ -84,6 +84,6 @@
   }
 
   .fg-container {
-    @apply max-w-[1000px];
+    @apply px-4 md:px-0 sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg;
   }
 }
