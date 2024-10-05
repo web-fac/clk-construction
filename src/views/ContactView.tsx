@@ -1,105 +1,117 @@
 // import AtomMachine from "components/AtomMachine";
 import { useState } from "react";
-import { ViewLayout, Button } from "components";
-
 import {
-  Description,
-  Field,
-  Fieldset,
+  ViewLayout,
+  Button,
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
   Input,
-  Label,
-  Legend,
-  Select,
   Textarea,
-} from "@headlessui/react";
+  Label,
+} from "components";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { Fieldset } from "@headlessui/react";
+
+// import { toast } from "@/components/hooks/use-toast"
+
+const FormSchema = z.object({
+  name: z.string().min(2, {
+    message: "Name must be at least 2 characters.",
+  }),
+  email: z.string().email(),
+  message: z
+    .string()
+    .min(2, { message: "Message must be at least 2 characters" })
+    .max(400),
+});
 
 const ContactView = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [error, setError] = useState("");
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+  });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Basic validation
-    if (!name || !email || !message) {
-      setError("All fields are required.");
-      return;
-    }
-    setError("");
-    // Handle form submission (e.g., send to an API)
-    console.log("Form submitted:", { name, email, message });
-  };
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    // toast({
+    //   title: "You submitted the following values:",
+    //   description: (
+    //     <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+    //       <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+    //     </pre>
+    //   ),
+    // });
+  }
 
   return (
-    <ViewLayout id="contact" className="py-12 md:py-24 lg:py-32 xl:py-48">
-      <div className="container px-4 md:px-6">
+    <ViewLayout
+      id="contact"
+      className="bg-container py-12 md:py-24 lg:py-32 xl:py-48"
+    >
+      <div className="fg-container w-full">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
           Contact Us
         </h2>
-        <p>
-          Use this to get a quote, learn more about our offerings, or for
-          general questions.
-        </p>
-        {error && <p className="text-red-500 mb-4">{error}</p>}
-        <form onSubmit={handleSubmit}>
-          <Fieldset>
-            <Field className="mb-4">
-              <Label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="name"
-              >
-                Name
-              </Label>
-              <input
-                type="text"
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="border border-gray-300 rounded-lg py-2 px-3 w-full focus:outline-none focus:ring-2 focus:ring-primary"
-                required
-              />
-            </Field>
-            <Field className="mb-4">
-              <Label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="email"
-              >
-                Email
-              </Label>
-              <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="border border-gray-300 rounded-lg py-2 px-3 w-full focus:outline-none focus:ring-2 focus:ring-primary"
-                required
-              />
-            </Field>
-            <Field className="mb-4">
-              <Label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="message"
-              >
-                Message
-              </Label>
-              <Textarea
-                id="message"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                className="border border-gray-300 rounded-lg py-2 px-3 w-full focus:outline-none focus:ring-2 focus:ring-primary"
-                rows={4}
-                required
-              ></Textarea>
-            </Field>
-            <Button
-              type="submit"
-              className="w-full bg-primary text-white font-bold py-2 px-4 rounded-lg hover:bg-primary"
-            >
-              Send Message
-            </Button>
-          </Fieldset>
-        </form>
+
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Name</FormLabel>
+                  <FormControl>
+                    <Input placeholder="John Doe" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input placeholder="johndoe@mycompany.com" {...field} />
+                  </FormControl>
+                  <FormDescription>
+                    We will use this to respond to you.
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="message"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Username</FormLabel>
+                  <FormControl>
+                    <Textarea placeholder="Hey, there!" rows={4} {...field} />
+                  </FormControl>
+                  <FormDescription>Send us a brief message.</FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button type="submit">Send Message</Button>
+          </form>
+        </Form>
       </div>
     </ViewLayout>
   );
