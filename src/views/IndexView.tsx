@@ -1,6 +1,6 @@
 // import AtomMachine from "components/AtomMachine";
 import { ViewLayout, Button, Typography } from "components";
-
+import Image from "next/image";
 const IndexView = () => {
   return (
     <ViewLayout className="bg-primary py-12 md:py-24 lg:py-32 xl:py-48">
