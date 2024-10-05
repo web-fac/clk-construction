@@ -1,3 +1,6 @@
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
 export const isProd = (): boolean => {
   return process.env.NODE_ENV === "production";
 };
@@ -26,3 +29,7 @@ export const dateToMonthYearString = (date: Date): string => {
   }
   return `${date.getMonth() + 1}/${date.getFullYear()}`;
 };
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}

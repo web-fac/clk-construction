@@ -1,12 +1,10 @@
 import React from "react";
-import { useState } from "react";
 
 /** Components */
-import { IndexView, ContactView, ServicesView, GalleryView } from "views";
+import { IndexView, ContactView, ServicesView, Footer, TopBar } from "views";
 
 import Head from "next/head";
 import { Service, createClient, getServices } from "lib/content";
-import TopBar from "views/TopBar";
 
 interface IndexPageProps {
   services: Service[];
@@ -18,8 +16,8 @@ export const IndexPage = ({ services }: IndexPageProps) => {
       <Head>
         <title>Jacob Miller</title>
       </Head>
-      <TopBar />
-      <main>
+      <main className="bg-container">
+        <TopBar />
         <IndexView />
         <ServicesView services={services} />
         {/* <GalleryView
@@ -28,6 +26,7 @@ export const IndexPage = ({ services }: IndexPageProps) => {
           onSlideChange={handleSlideChange}
         /> */}
         <ContactView />
+        <Footer />
       </main>
     </>
   );

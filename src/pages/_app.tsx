@@ -18,6 +18,7 @@ function App({ Component, pageProps }: AppProps) {
         main {
           height: 100%;
           max-width: 100%;
+          width: 100%;
         }
       `}</style>
       <Head>
