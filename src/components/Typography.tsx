@@ -1,6 +1,5 @@
 import * as React from "react";
 import { VariantProps, cva } from "class-variance-authority";
-
 import { cn } from "utils";
 
 const typographyVariants = cva("text-foreground", {
@@ -32,20 +31,23 @@ type TypographyProps<T extends Element> = {
 } & VariantProps<typeof typographyVariants> &
   React.HTMLAttributes<HTMLElement>;
 
-const Typography = <T extends Element>({
-  className,
-  element,
-  as,
-  ...props
-}: TypographyProps<T>) => {
-  const Component = element;
+const Typography = React.forwardRef(
+  <T extends Element>(
+    { className, element, as, ...props }: TypographyProps<T>,
+    ref: React.Ref<HTMLElement>
+  ) => {
+    const Component = element;
 
-  const componentProps = {
-    className: cn(typographyVariants({ as, className })),
-    ...props,
-  };
+    const componentProps = {
+      className: cn(typographyVariants({ as, className })),
+      ref, // Attach the ref here
+      ...props,
+    };
 
-  return React.createElement(Component, componentProps);
-};
+    return React.createElement(Component, componentProps);
+  }
+);
 
-export default React.forwardRef(Typography);
+Typography.displayName = "Typography"; // Set displayName for better debugging
+
+export default Typography;
