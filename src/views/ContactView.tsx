@@ -1,5 +1,5 @@
 // import AtomMachine from "components/AtomMachine";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   ViewLayout,
   Button,
@@ -12,13 +12,12 @@ import {
   FormMessage,
   Input,
   Textarea,
-  Label,
+  Select,
 } from "components";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Fieldset } from "@headlessui/react";
 
 // import { toast } from "@/components/hooks/use-toast"
 
@@ -31,15 +30,17 @@ const FormSchema = z.object({
     .string()
     .min(2, { message: "Message must be at least 2 characters" })
     .max(400),
+  status: z.string(),
 });
 
-const ContactView = () => {
+const ContactView = ({ options }) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       name: "",
       email: "",
       message: "",
+      status: "", //store selected value
     },
   });
 
@@ -66,6 +67,7 @@ const ContactView = () => {
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            {/* Name Field */}
             <FormField
               control={form.control}
               name="name"
@@ -79,6 +81,7 @@ const ContactView = () => {
                 </FormItem>
               )}
             />
+            {/* Email Field */}
             <FormField
               control={form.control}
               name="email"
@@ -95,12 +98,25 @@ const ContactView = () => {
                 </FormItem>
               )}
             />
+            {/* Select Field for Status */}
+            <FormField
+              control={form.control}
+              name="status"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Options</FormLabel>
+                  <FormControl>
+                    <Select options={options} {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
             <FormField
               control={form.control}
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Username</FormLabel>
+                  <FormLabel>Description</FormLabel>
                   <FormControl>
                     <Textarea placeholder="Hey, there!" rows={4} {...field} />
                   </FormControl>

@@ -22,3 +22,4 @@ export {
 export { Textarea } from "./TextArea";
 export { default as Typography } from "./Typography";
 export { Input } from "./Input";
+export { Select } from "./Select";

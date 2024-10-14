@@ -7,6 +7,8 @@ export type Service = {
   image: string;
 };
 
+export type SelectOptions = string[]
+
 export const PRISMIC_REPOSITORY_NAME = process.env.PRISMIC_REPO_NAME;
 
 // https://prismic.io/docs/setup-nextjs#define-routes
@@ -60,3 +62,7 @@ export function getServices(client: prismic.Client) {
 }
 
 export function getSocials(client: prismic.Client) {}
+
+export function getOptions(client: prismic.Client) {
+  return ["Get a Quote", "General Inquiry", "Other"];
+}

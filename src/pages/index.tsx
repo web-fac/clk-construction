@@ -4,13 +4,20 @@ import React from "react";
 import { IndexView, ContactView, ServicesView, Footer, TopBar } from "views";
 
 import Head from "next/head";
-import { Service, createClient, getServices } from "lib/content";
+import {
+  Service,
+  createClient,
+  getServices,
+  getOptions,
+  SelectOptions,
+} from "lib/content";
 
 interface IndexPageProps {
   services: Service[];
+  options: SelectOptions;
 }
 
-export const IndexPage = ({ services }: IndexPageProps) => {
+export const IndexPage = ({ services, options }: IndexPageProps) => {
   return (
     <>
       <Head>
@@ -25,7 +32,7 @@ export const IndexPage = ({ services }: IndexPageProps) => {
           slideNumber={currentSlide}
           onSlideChange={handleSlideChange}
         /> */}
-        <ContactView />
+        <ContactView options={options} />
         <Footer />
       </main>
     </>
@@ -39,9 +46,12 @@ export async function getStaticProps(params, previewData) {
 
   const services = getServices(client);
 
+  const options: SelectOptions = getOptions(client);
+
   return {
     props: {
       services,
+      options,
     },
     revalidate: 60,
   };
