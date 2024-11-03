@@ -4,10 +4,16 @@ import clsx from "clsx";
 type ViewLayoutProps = {
   children: React.ReactElement | React.ReactElement[];
   className?: string;
+  innerClassName?: string;
   [rest: string]: any;
 };
 
-const ViewLayout = ({ children, className = "", ...rest }: ViewLayoutProps) => {
+const ViewLayout = ({
+  children,
+  className = "",
+  innerClassName = "",
+  ...rest
+}: ViewLayoutProps) => {
   return (
     <section
       className={clsx(
@@ -16,7 +22,12 @@ const ViewLayout = ({ children, className = "", ...rest }: ViewLayoutProps) => {
       )}
       {...rest}
     >
-      <div className="max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl w-full flex items-center justify-center">
+      <div
+        className={clsx(
+          "max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl w-full flex items-center justify-center",
+          innerClassName
+        )}
+      >
         {children}
       </div>
     </section>
