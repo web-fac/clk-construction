@@ -7,27 +7,23 @@ const IndexView = () => {
       <div className="fg-container flex items-center mx-auto">
         <div className="flex flex-col items-center space-y-4 text-center">
           <div className="space-y-2">
-            <Typography
-              element="h1"
-              as="h1"
-              className="text-primary-foreground"
-            >
+            <Typography element="h1" as="h1" className="text-secondary">
               Building Your Dreams, One Project at a Time
             </Typography>
             <Typography
               element="p"
               as="p"
-              className="mx-auto max-w-[700px] text-primary-foreground"
+              className="mx-auto max-w-[700px] text-primary"
             >
               CLK Construction: Your trusted partner for residential and light
               commercial construction, remodeling, and custom decks.
             </Typography>
           </div>
           <div className="space-x-4">
-            <Button variant="outline" className="text-primary">
+            <Button variant="outline" className="text-secondary">
               Get a Quote
             </Button>
-            <Button variant="outline" className="text-primary">
+            <Button variant="outline" className="text-secondary">
               Our Services
             </Button>
           </div>
