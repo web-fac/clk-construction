@@ -1,5 +1,3 @@
-// import AtomMachine from "components/AtomMachine";
-import { useRef, useState } from "react";
 import {
   ViewLayout,
   Button,

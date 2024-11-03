@@ -1,4 +1,3 @@
-// import AtomMachine from "components/AtomMachine";
 import { ViewLayout, Button } from "components";
 import { Card, CardContent } from "components/Card";
 import { Service } from "lib/content";
@@ -37,7 +36,7 @@ const ServicesView = ({ services }: ServicesViewProps) => {
               <CardContent className="flex flex-col items-center p-6">
                 <h3 className="text-lg font-bold mb-2">{service.title}</h3>
                 <p className="text-center text-sm text-gray-500">
-                  {service.description}
+                  {service.shortDescription}
                 </p>
               </CardContent>
             </Card>
@@ -61,6 +60,9 @@ const ServicesView = ({ services }: ServicesViewProps) => {
                   />
                   <p className="mt-4 text-center text-lg font-semibold">
                     {service.title}
+                  </p>
+                  <p className="text-center text-sm text-gray-500">
+                    {service.description}
                   </p>
                 </div>
               ))}

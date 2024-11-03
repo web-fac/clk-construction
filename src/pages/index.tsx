@@ -27,11 +27,6 @@ export const IndexPage = ({ services, options }: IndexPageProps) => {
         <TopBar />
         <IndexView />
         <ServicesView services={services} />
-        {/* <GalleryView
-          services={services}
-          slideNumber={currentSlide}
-          onSlideChange={handleSlideChange}
-        /> */}
         <ContactView options={options} />
         <Footer />
       </main>
@@ -44,7 +39,7 @@ export default IndexPage;
 export async function getStaticProps(params, previewData) {
   const client = createClient(previewData);
 
-  const services = getServices(client);
+  const services = await getServices(client);
 
   const options: SelectOptions = getOptions(client);
 
