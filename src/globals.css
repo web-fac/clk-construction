@@ -43,11 +43,12 @@
     --ring: 210, 100%, 60%;
     --radius: 0.5rem;
   }
-}
-
-@layer base {
+  
   * {
     @apply border-border;
+  }
+  html {
+    @apply font-serif;
   }
   body {
     @apply bg-background text-foreground;
