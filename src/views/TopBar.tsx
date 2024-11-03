@@ -2,7 +2,7 @@ import Link from "next/link";
 
 function TopBar() {
   return (
-    <header className="fg-container bg-primary text-nuetral flex items-center mx-auto h-14">
+    <header className="fg-container bg-primary text-neutral flex items-center mx-auto h-14">
       <Link className="flex items-center justify-center" href="">
         <span className="text-2xl font-bold">CLK Construction</span>
       </Link>
