@@ -1,42 +1,5 @@
-// import AtomMachine from "components/AtomMachine";
 import Image from "next/image";
-import { ViewLayout, Button, Typography } from "components";
-
-// const IndexView = () => {
-//   return (
-//     <ViewLayout className="bg-primary py-12 md:py-24 lg:py-32 xl:py-48">
-//       <div className="fg-container flex items-center mx-auto">
-//         <div className="flex flex-col items-center space-y-4 text-center">
-//           <div className="space-y-2">
-//             <Typography
-//               element="h1"
-//               as="h1"
-//               className="text-primary-foreground"
-//             >
-//               Building Your Dreams, One Project at a Time
-//             </Typography>
-//             <Typography
-//               element="p"
-//               as="p"
-//               className="mx-auto max-w-[700px] text-primary-foreground"
-//             >
-//               CLK Construction: Your trusted partner for residential and light
-//               commercial construction, remodeling, and custom decks.
-//             </Typography>
-//           </div>
-//           <div className="space-x-4">
-//             <Button variant="outline" className="text-primary">
-//               Get a Quote
-//             </Button>
-//             <Button variant="outline" className="text-primary">
-//               Our Services
-//             </Button>
-//           </div>
-//         </div>
-//       </div>
-//     </ViewLayout>
-//   );
-// };
+import { ViewLayout, Typography } from "components";
 
 const IndexView = () => {
   return (
@@ -44,9 +7,6 @@ const IndexView = () => {
       className=""
       innerClassName="min-w-100 sm:max-w-full md:max-w-full lg:max-w-full xl:max-w-full 2xl:max-w-full"
     >
-      {/* <div className="bg-primary py-12 md:py-24 lg:py-32 xl:py-48 w-100 min-w-100 flex flex-grow">
-        test
-      </div> */}
       <div className="w-full">
         <div className="relative">
           <Image
