@@ -4,44 +4,43 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
+    --background: 0, 0%, 100%;
+    --foreground: 0, 0%, 5%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210, 15%, 90%;
+    --muted-foreground: 210, 15%, 50%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
+    --popover: 0, 0%, 100%;
+    --popover-foreground: 0, 0%, 5%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+    --border: 210, 15%, 80%;
+    --input: 210, 15%, 90%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
+    --card: 0, 0%, 100%;
+    --card-foreground: 0, 0%, 5%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-light: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --primary-dark: 222.2 47.4% 11.2%;
+    --primary: 0, 0%, 50%; /* Rich Red */
+    --primary-light: 0, 80%, 60%;
+    --primary-foreground: 0, 0%, 100%;
+    --primary-dark: 222, 47%, 11%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-light: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --secondary-dark: 210 40% 96.1%;
+    --secondary: 82 39% 30%; /* Cyan Blue */
+    --secondary-light: 195, 100%, 60%;
+    --secondary-foreground: 0, 0%, 100%;
+    --secondary-dark: 195, 100%, 40%;
 
-    --neutral: 0 0% 0%
-    --neutral-light: 0 0% 0%
-    --neutral-foreground
-    --neutral-dark: 0 0% 0%
+    --neutral: 0, 0%, 5%; /* Sleek Black */
+    --neutral-light: 0, 0%, 30%;
+    --neutral-foreground: 0, 0%, 100%;
+    --neutral-dark: 0, 0%, 0%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 34 44% 69%; /* Mustard Yellow */
+    --accent-foreground: 0, 0%, 5%;
 
-    --destructive: 0 100% 50%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0, 100%, 50%;
+    --destructive-foreground: 0, 0%, 100%;
 
-    --ring: 215 20.2% 65.1%;
-
+    --ring: 210, 100%, 60%;
     --radius: 0.5rem;
   }
 }
@@ -63,3 +62,9 @@
     @apply px-4 md:px-0 sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg;
   }
 }
+
+
+
+
+
+
