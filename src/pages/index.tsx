@@ -1,5 +1,5 @@
 import React from "react";
-
+import { attributes, react as HomeContent } from '../../content/home.md'
 /** Components */
 import { IndexView, ContactView, ServicesView, Footer, TopBar } from "views";
 
@@ -18,6 +18,7 @@ interface IndexPageProps {
 }
 
 export const IndexPage = ({ services, options }: IndexPageProps) => {
+  let { title, cats } = attributes
   return (
     <>
       <Head>
@@ -29,6 +30,18 @@ export const IndexPage = ({ services, options }: IndexPageProps) => {
         <ServicesView services={services} />
         <ContactView options={options} />
         <Footer />
+        <article>
+          <h1>{title}</h1>
+          <HomeContent />
+          <ul>
+            {cats.map((cat, k) => (
+              <li key={k}>
+                <h2>{cat.name}</h2>
+                <p>{cat.description}</p>
+              </li>
+            ))}
+          </ul>
+        </article>
       </main>
     </>
   );

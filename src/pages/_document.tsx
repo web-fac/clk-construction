@@ -18,6 +18,8 @@ export default class MyDocument extends Document {
           <meta property="og:description" content="CLK Construction" />
           <meta property="og:url" content="https://jacobmiller22.com" />
 
+          <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async
@@ -37,6 +39,7 @@ export default class MyDocument extends Document {
           />
         </Head>
         <body>
+          
           <Main />
           <NextScript />
         </body>
