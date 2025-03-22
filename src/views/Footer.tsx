@@ -30,6 +30,26 @@ function Footer() {
     <footer className="bg-container bg-primary">
       <div className="fg-container  flex items-center mx-auto h-14">
         <div className="text-primary-foreground">CLK Construction</div>
+        <nav className="ml-auto flex gap-4 sm:gap-6">
+          <Link
+            className="text-md font-medium hover:underline underline-offset-4"
+            href="/#services"
+          >
+            Services
+          </Link>
+          <Link
+            className="text-md font-medium hover:underline underline-offset-4"
+            href="/#about"
+          >
+            About Us
+          </Link>
+          <Link
+            className="text-md font-medium hover:underline underline-offset-4"
+            href="/#contact"
+          >
+            Contact
+          </Link>
+        </nav>
       </div>
     </footer>
   );
