@@ -16,25 +16,7 @@ export default class MyDocument extends Document {
           <meta property="og:type" content="website" />
           <meta property="og:title" content="CLK Construction" />
           <meta property="og:description" content="CLK Construction" />
-          <meta property="og:url" content="https://jacobmiller22.com" />
-
-          {/* Global Site Tag (gtag.js) - Google Analytics */}
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_ID_PORTFOLIO}`}
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${process.env.GOOGLE_ANALYTICS_ID_PORTFOLIO}', {
-              page_path: window.location.pathname,
-            });
-          `,
-            }}
-          />
+          <meta property="og:url" content="clkconstructioninc.com" />
         </Head>
         <body>
           <Main />
