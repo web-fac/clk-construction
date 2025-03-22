@@ -29,7 +29,7 @@ export const IndexPage = ({ services, options }: IndexPageProps) => {
   return (
     <>
       <Head>
-        <title>Jacob Miller</title>
+        <title>CLK Construction</title>
       </Head>
       <main className="bg-container">
         <TopBar />
