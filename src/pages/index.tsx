@@ -58,6 +58,6 @@ export async function getStaticProps(params, previewData) {
       services,
       options,
     },
-    revalidate: 60,
+    // revalidate: 60,
   };
 }
