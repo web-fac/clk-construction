@@ -27,8 +27,8 @@ const IndexView = () => {
                 Building Your Dreams, One Project at a Time
               </Typography>
               <Typography
-                element="p"
-                as="p"
+                element="h4"
+                as="h4"
                 className="mx-auto max-w-[700px] text-primary-foreground drop-shadow-[0_1.2px_1.2px_rgba(0,0,20,0.8)]"
               >
                 CLK Construction: Your trusted partner for residential and light

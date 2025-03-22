@@ -22,8 +22,8 @@ const ServicesView = ({ services }: ServicesViewProps) => {
 
   return (
     <ViewLayout className="py-12 md:py-24 lg:py-24 xl:py-32">
-      <div className="fg-container">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
+      <div id="services" className="fg-container">
+        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl mb-4 text-center">
           Our Services
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 pb-4">

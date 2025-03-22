@@ -1,7 +1,15 @@
 import React from "react";
 
 /** Components */
-import { IndexView, ContactView, ServicesView, Footer, TopBar } from "views";
+import {
+  IndexView,
+  ContactView,
+  ServicesView,
+  Footer,
+  TopBar,
+  AboutView,
+  ContactInfoView,
+} from "views";
 
 import Head from "next/head";
 import {
@@ -27,7 +35,9 @@ export const IndexPage = ({ services, options }: IndexPageProps) => {
         <TopBar />
         <IndexView />
         <ServicesView services={services} />
-        <ContactView options={options} />
+        <AboutView />
+        {/* <ContactView options={options} /> */}
+        <ContactInfoView />
         <Footer />
       </main>
     </>
@@ -48,6 +58,6 @@ export async function getStaticProps(params, previewData) {
       services,
       options,
     },
-    revalidate: 60,
+    // revalidate: 60,
   };
 }
