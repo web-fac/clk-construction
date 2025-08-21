@@ -17,6 +17,7 @@ export default class MyDocument extends Document {
           <meta property="og:title" content="CLK Construction" />
           <meta property="og:description" content="CLK Construction" />
           <meta property="og:url" content="clkconstructioninc.com" />
+          <link rel="icon" href="/icon.ico" />
         </Head>
         <body>
           <Main />
