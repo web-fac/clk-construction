@@ -18,21 +18,21 @@ const IndexView = () => {
             className="w-full h-[500px] object-cover blur-sm"
           />
           <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-            <div className="space-y-2">
+            <div className="space-y-4 px-4 text-center">
               <Typography
                 element="h1"
                 as="h1"
-                className="text-primary-foreground drop-shadow-[0_1.2px_1.2px_rgba(0,0,20,0.8)]"
+                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary-foreground drop-shadow-[0_1.2px_1.2px_rgba(0,0,20,0.8)]"
               >
                 Building Your Dreams, One Project at a Time
               </Typography>
               <Typography
                 element="h4"
                 as="h4"
-                className="mx-auto max-w-[700px] text-primary-foreground drop-shadow-[0_1.2px_1.2px_rgba(0,0,20,0.8)]"
+                className="text-xl md:text-2xl lg:text-3xl mx-auto max-w-[800px] text-primary-foreground drop-shadow-[0_1.2px_1.2px_rgba(0,0,20,0.8)]"
               >
-                CLK Construction: Your trusted partner for residential and light
-                commercial construction, remodeling, and custom decks.
+                Your trusted partner for residential and light commercial
+                construction, remodeling, and custom decks.
               </Typography>
             </div>
           </div>
